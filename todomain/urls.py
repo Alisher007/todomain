@@ -20,6 +20,11 @@ from django.conf.urls.static import static
 
 admin.autodiscover()
 admin.site.enable_nav_sidebar = False
+
+admin.site.site_header = "TODOAPP Admin"
+admin.site.site_title = "TODOAPP Admin Portal"
+admin.site.index_title = "Welcome to TODOAPP Researcher Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('todofunc.urls')),
