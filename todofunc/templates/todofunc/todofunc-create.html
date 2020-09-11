@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <h3>Create Todo</h3>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{form.name}}
+                <input class="btn btn-primary" type="submit" name="create">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

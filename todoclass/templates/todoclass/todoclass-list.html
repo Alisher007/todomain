@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-5 text-center">
+                <h1>Class List</h1>
+                <a class="btn btn-sm btn-info my-2" href="{% url 'todoclass:create' %}">Create Todo</a>
+                {%if object%}
+                <table class="table table-dark ">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Todo</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%for todo in object %}
+                            <tr>
+                                <th scope="row">{{todo.id}}</th>
+                                <th>
+                                    {%if todo.complete %}
+                                    <a class="text-muted" href='{{ todo.get_absolute_url }}'>{{todo.name}}</a>
+                                    {%else%}
+                                    <a href='{{ todo.get_absolute_url }}'>{{todo.name}}</a>
+                                    {%endif%}
+                                </th>
+                                <th>
+                                    <a class="btn btn-sm btn-danger" href="{% url 'todoclass:update' todo.id %}">Update</a>
+                                    <a class="btn btn-sm btn-danger" href="{% url 'todoclass:delete' todo.id %}">Delete</a>
+                                </th>
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                  </table>
+                  {%endif%}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <h1>todo apps </h1>
+        <p>This demo app for function and class based view</p>
+        <li>
+            <a href="{% url 'todofunc:list' %}">FunctionView </a>
+          </li>
+          <li>
+            <a href="{% url 'todoclass:list' %}">ClassView </a>
+          </li>
+    </div>
+{% endblock %}
